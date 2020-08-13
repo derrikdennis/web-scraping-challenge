@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Add local folder dependencies
+Instructions/
+Mission-to-Mars/chromedriver.exe
+Instructions/README.md
+test.html
