@@ -1,5 +1,13 @@
-# Web Scraping Homework - Mission to Mars
+# Web Scraping Homework - Mission to Mars  <!-- omit from toc-->
  
+- [Web Scraping Homework - Mission to Mars](#web-scraping-homework---mission-to-mars)
+  - [Step 1 - Scraping](#step-1---scraping)
+    - [NASA Mars News](#nasa-mars-news)
+    - [JPL Mars Space Images - Featured Image](#jpl-mars-space-images---featured-image)
+    - [Mars Weather](#mars-weather)
+    - [Mars Facts](#mars-facts)
+    - [Mars Hemispheres](#mars-hemispheres)
+  - [Step 2 - MongoDB and Flask Application](#step-2---mongodb-and-flask-application)
 
 ## Step 1 - Scraping
 
