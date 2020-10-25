@@ -46,3 +46,35 @@ def mars_news(browser):
         return None, None
 
     return news_title, news_p
+
+
+def featured_image(browser):
+    url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
+    browser.visit(url)
+
+    # Find and click the full image button
+    full_image_elem = browser.find_by_id("full_image")
+    full_image_elem.click()
+
+    # Find the more info button and click that
+    browser.is_element_present_by_text("more info", wait_time=0.5)
+    more_info_elem = browser.links.find_by_partial_text("more info")
+    more_info_elem.click()
+
+    # Parse the resulting html with soup
+    html = browser.html
+    img_soup = BeautifulSoup(html, "html.parser")
+
+    # Find the relative image url
+    img = img_soup.select_one("figure.lede a img")
+
+    try:
+        img_url_rel = img.get("src")
+
+    except AttributeError:
+        return None
+
+    # Use the base url to create an absolute url
+    img_url = f"https://www.jpl.nasa.gov{img_url_rel}"
+
+    return img_url
