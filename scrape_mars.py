@@ -78,3 +78,31 @@ def featured_image(browser):
     img_url = f"https://www.jpl.nasa.gov{img_url_rel}"
 
     return img_url
+
+
+def hemispheres(browser):
+
+    # A way to break up long strings
+    url = (
+        "https://astrogeology.usgs.gov/search/"
+        "results?q=hemisphere+enhanced&k1=target&v1=Mars"
+    )
+
+    browser.visit(url)
+
+    # Click the link, find the sample anchor and return the href
+    hemisphere_image_urls = []
+    for i in range(4):
+
+        # find the elements on each loop to aviod a stale element exception
+        browser.find_by_css("a.product-item h3")[i].click()
+
+        hemi_data = scrape_hemisphere(browser.html)
+
+        # Append hemisphere object to list
+        hemisphere_image_urls.append(hemi_data)
+
+        # Finally, we naviage backwards
+        browser.back()
+
+    return hemisphere_image_urls
