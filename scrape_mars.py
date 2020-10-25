@@ -106,3 +106,29 @@ def hemispheres(browser):
         browser.back()
 
     return hemisphere_image_urls
+
+
+def twitter_weather(browser):
+    url = "https://twitter.com/marswxreport?lang=en"
+    browser.visit(url)
+
+    # Pause for 5 seconds to let the Twitter page load
+    time.sleep(5)
+
+    html = browser.html
+    weather_soup = BeautifulSoup(html, "html.parser")
+
+    # First, find a twseek with the data-name 'Mars WEasther'
+    tweet_attrs = {"class": "tweet", "data-name": "Mars Weather"}
+    mars_weather_tweet = weather_soup.find("div", attrs=tweet_attrs)
+
+    # Next, search for the p tag or span tag within the tweet
+    try:
+        mars_weather = mars_weather_tweet.find("p", "tweet-text").get_text()
+
+    except AttributeError:
+
+        pattern = re.compile(r'sol')
+        mars_weather = weather_soup.find('span', text=pattern).text
+
+    return mars_weather
