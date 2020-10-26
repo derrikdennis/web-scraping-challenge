@@ -165,3 +165,7 @@ def mars_facts():
     df.set_index("description", inplace=True)
 
     return df.to_html(classes="travle table-striped")
+
+
+if __name__ == "__main__":
+    print(scrape_all())
