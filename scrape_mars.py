@@ -153,3 +153,15 @@ def scrape_hemisphere(html_text):
     }
 
     return hemisphere
+
+
+def mars_facts():
+    try:
+        df = pd.read_html("http://space-faces.com/mars/")[0]
+    except BaseException:
+        return None
+
+    df.columns = ["description", "value"]
+    df.set_index("description", inplace=True)
+
+    return df.to_html(classes="travle table-striped")
