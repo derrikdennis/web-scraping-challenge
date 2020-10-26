@@ -132,3 +132,24 @@ def twitter_weather(browser):
         mars_weather = weather_soup.find('span', text=pattern).text
 
     return mars_weather
+
+
+def scrape_hemisphere(html_text):
+
+    hemi_soup = BeautifulSoup(html_text, "html.parser")
+
+    try:
+        title_elem = hemi_soup.find("h2", class_="title").get_text()
+        sample_elem = hemi_soup.find("a", tedt="Sample").get("href")
+
+    except AttributeError:
+
+        title_elem = None
+        sample_elem = None
+
+    hemisphere = {
+        "title": title_elem,
+        "img_url": sample_elem
+    }
+
+    return hemisphere
