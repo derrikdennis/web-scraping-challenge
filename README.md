@@ -1,5 +1,6 @@
-# Web Scraping Homework - Mission to Mars  <!-- omit in toc -->
+# Mission to Mars - Web Scraping Challenge <!-- omit in toc -->
  
+## Table of Contents <!-- omit in toc -->
 - [Step 1 - Scraping](#step-1---scraping)
   - [NASA Mars News](#nasa-mars-news)
   - [JPL Mars Space Images - Featured Image](#jpl-mars-space-images---featured-image)
